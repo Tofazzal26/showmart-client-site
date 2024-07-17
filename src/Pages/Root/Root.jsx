@@ -6,8 +6,10 @@ const Root = () => {
   return (
     <div>
       <Header />
-      <div className="lg:px-0 px-2 h-[100vh]">
-        <Outlet />
+      <div className="lg:px-0 px-2 min-h-[calc(100vh-316px)]">
+        <div className="container mx-auto">
+          <Outlet />
+        </div>
       </div>
       <Footer />
     </div>
