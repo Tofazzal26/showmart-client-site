@@ -1,6 +1,67 @@
+import { NavLink } from "react-router-dom";
 import logo from "../../../public/budgeting.png";
+import profile from "../../../public/profile.png";
 
 const Header = () => {
+  const navLinks = (
+    <>
+      <li>
+        <a>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? "text-orange-300" : "text-white"
+            }
+          >
+            Campaigns
+          </NavLink>
+        </a>
+      </li>
+      <li>
+        <a>
+          <NavLink
+            to="/service"
+            className={({ isActive }) =>
+              isActive
+                ? "text-orange-300"
+                : "text-white hover:text-orange-300 hover:ease-in-out transition-all"
+            }
+          >
+            Services
+          </NavLink>
+        </a>
+      </li>
+      <li>
+        <a>
+          <NavLink
+            to="/business"
+            className={({ isActive }) =>
+              isActive
+                ? "text-orange-300"
+                : "text-white hover:text-orange-300 hover:ease-in-out transition-all"
+            }
+          >
+            Business
+          </NavLink>
+        </a>
+      </li>
+      <li>
+        <a>
+          <NavLink
+            to="/helpdesk"
+            className={({ isActive }) =>
+              isActive
+                ? "text-orange-300"
+                : "text-white hover:text-orange-300 hover:ease-in-out transition-all"
+            }
+          >
+            Helpdesk
+          </NavLink>
+        </a>
+      </li>
+    </>
+  );
+
   return (
     <div className="bg-[#162649] text-white">
       <div className="navbar container mx-auto">
@@ -24,20 +85,9 @@ const Header = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-[#162649] text-white rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-              <li>
-                <a>Campaigns</a>
-              </li>
-              <li>
-                <a>Services</a>
-              </li>
-              <li>
-                <a>Business</a>
-              </li>
-              <li>
-                <a>Helpdesk</a>
-              </li>
+              {navLinks}
             </ul>
           </div>
           <a className="btn btn-ghost flex items-center text-2xl">
@@ -46,24 +96,13 @@ const Header = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal font-semibold px-1">
-            <li>
-              <a>Campaigns</a>
-            </li>
-            <li>
-              <a>Services</a>
-            </li>
-            <li>
-              <a>Business</a>
-            </li>
-            <li>
-              <a>Helpdesk</a>
-            </li>
+            {navLinks}
           </ul>
         </div>
         <div className="navbar-end">
           <div className="avatar">
-            <div className="ring-blue ring-offset-blue-400 w-12 rounded-full ring ring-offset-2">
-              <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+            <div className="ring-blue ring-offset-blue-400 w-10 rounded-full ring ring-offset-2">
+              <img src={profile} />
             </div>
           </div>
         </div>
