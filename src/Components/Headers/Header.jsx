@@ -101,7 +101,7 @@ const Header = () => {
         </div>
         <div className="navbar-end">
           <div className="avatar">
-            <div className="ring-blue ring-offset-blue-400 w-10 rounded-full ring ring-offset-2">
+            <div className="ring-blue ring-offset-blue-400 w-[35px] rounded-full ring ring-offset-2">
               <img src={profile} />
             </div>
           </div>
