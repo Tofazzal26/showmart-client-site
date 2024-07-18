@@ -8,11 +8,11 @@ const Register = () => {
     const email = e.target.email.value;
     const mobile = e.target.mobile.value;
     const pin = e.target.pin.value;
-    console.log({ name, email, mobile, pin });
+    const role = e.target.role.value;
   };
 
   return (
-    <div className="mt-12">
+    <div className="my-12">
       <div className="border-2 lg:w-[800px] mx-auto">
         <div className="p-4 lg:p-10 ">
           <form onSubmit={handleSubmit}>
@@ -60,6 +60,18 @@ const Register = () => {
                 name="pin"
                 required
               />
+              <label className="font-semibold">Role</label>
+              <select
+                name="role"
+                className="select select-bordered font-semibold w-full"
+              >
+                <option value="user" className="font-semibold">
+                  User
+                </option>
+                <option value="agent" className="font-semibold">
+                  Agent
+                </option>
+              </select>
             </div>
             <button className="w-full bg-[#2d4d95] text-white rounded-md font-semibold py-2">
               Register
