@@ -8,18 +8,6 @@ const Header = () => {
       <li>
         <a>
           <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive ? "text-orange-300" : "text-white"
-            }
-          >
-            Campaigns
-          </NavLink>
-        </a>
-      </li>
-      <li>
-        <a>
-          <NavLink
             to="/service"
             className={({ isActive }) =>
               isActive
@@ -101,7 +89,7 @@ const Header = () => {
         </div>
         <div className="navbar-end">
           <button className="bg-orange-300 px-4 text-[14px] py-2 text-black font-semibold rounded-md">
-            <NavLink to="/login">Login</NavLink>
+            <NavLink to="/">Login</NavLink>
           </button>
           <div className="avatar hidden">
             <div className="ring-blue ring-offset-blue-400 w-[35px] rounded-full ring ring-offset-2">
