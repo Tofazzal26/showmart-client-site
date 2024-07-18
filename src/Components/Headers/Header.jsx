@@ -100,7 +100,10 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <div className="avatar">
+          <button className="bg-orange-300 px-4 text-[14px] py-2 text-black font-semibold rounded-md">
+            <NavLink to="/login">Login</NavLink>
+          </button>
+          <div className="avatar hidden">
             <div className="ring-blue ring-offset-blue-400 w-[35px] rounded-full ring ring-offset-2">
               <img src={profile} />
             </div>

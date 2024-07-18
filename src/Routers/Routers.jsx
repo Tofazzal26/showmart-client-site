@@ -5,6 +5,8 @@ import Home from "../Pages/Home/Home";
 import Service from "../Pages/Service/Service";
 import Helpdesk from "../Pages/Helpdesk/Helpdesk";
 import Business from "../Pages/Business/Business";
+import Login from "../Pages/Login/Login";
+import Register from "./../Pages/Register/Register";
 
 const Routers = createBrowserRouter([
   {
@@ -26,6 +28,14 @@ const Routers = createBrowserRouter([
       {
         path: "/helpdesk",
         element: <Helpdesk />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
     ],
   },
