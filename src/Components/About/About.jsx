@@ -2,10 +2,10 @@ import aboutImage from "../../../public/about image.png";
 
 const About = () => {
   return (
-    <div>
+    <div className="my-2">
       <div className="container mx-auto">
-        <div className="mt-[100px]">
-          <h1 className="text-[55px] leading-[70px] font-black">
+        <div className="lg:mt-[100px]">
+          <h1 className="lg:text-[55px] lg:leading-[70px] font-black">
             The leading people <br /> Management platform
           </h1>
           <p className="text-[20px] mt-2">
@@ -14,12 +14,12 @@ const About = () => {
         </div>
       </div>
 
-      <div className="bg-[#2a70fb] mt-[300px]">
-        <div className="px-[180px] py-[200px] relative">
-          <div className="absolute right-[180px] top-[-200px]">
+      <div className="bg-[#2a70fb]  lg:mt-[300px]">
+        <div className="lg:px-[180px] px-4 lg:py-[200px] relative">
+          <div className="absolute lg:right-[180px] lg:top-[-200px]">
             <img src={aboutImage} alt="about" />
           </div>
-          <div className="space-y-6 mt-[300px]">
+          <div className="space-y-6 lg:mt-[300px]">
             <h1 className="text-[30px] font-bold text-white">
               Join our team to create the best digital <br /> solutions.
             </h1>
