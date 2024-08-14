@@ -1,5 +1,7 @@
-import logo from "../../../public/budgeting.png";
-
+import logo from "../../../public/convenience.png";
+import { MdOutlineMail } from "react-icons/md";
+import { IoCallOutline } from "react-icons/io5";
+import { IoLocationOutline } from "react-icons/io5";
 const Footer = () => {
   return (
     <div className=" bg-[#162649] text-white p-10">
@@ -7,46 +9,44 @@ const Footer = () => {
         <aside>
           <div className="flex items-center gap-2">
             <img src={logo} width={45} alt="" />
-            <h2 className="text-[24px] font-semibold">Financity</h2>
+            <h2 className="text-[24px] font-semibold">ShowMart</h2>
           </div>
           <p className="text-base lg:w-[600px]">
-            Financity Industries Ltd.
+            ShowMart Industries Ltd.
             <br />
-            Financial statements are written records that convey the financial
-            activities of a company. Financial statements are often audited by
-            government agencies and accountants to ensure accuracy and for tax,
-            financing, or investing purposes.
+            ShowMart is a sleek MERN stack app for browsing products with ease.
+            It offers pagination, search, categorization, and sorting features,
+            all within a responsive, user-friendly interface. Secure
+            authentication is provided via Google and email.
           </p>
         </aside>
         <nav>
-          <h6 className="text-lg font-semibold">Quick Links</h6>
+          <h6 className="text-lg font-semibold">Company</h6>
           <a className="link link-hover text-[16px]">About Us</a>
-          <a className="link link-hover text-[16px]">Contact Us</a>
-          <a className="link link-hover text-[16px]">Legal Notice</a>
+          <a className="link link-hover text-[16px]">Service</a>
+          <a className="link link-hover text-[16px]">Case Studies</a>
+          <a className="link link-hover text-[16px]">Blog</a>
+          <a className="link link-hover text-[16px]">Contact</a>
+        </nav>
+        <nav>
+          <h6 className="text-lg font-semibold">Support</h6>
+          <a className="link link-hover text-[16px]">Community </a>
+          <a className="link link-hover text-[16px]">Resources </a>
+          <a className="link link-hover text-[16px]">Faqs</a>
+          <a className="link link-hover text-[16px]">Privacy Policy</a>
           <a className="link link-hover text-[16px]">Careers</a>
-          <a className="link link-hover text-[16px]">Help Center</a>
         </nav>
         <nav>
-          <h6 className="text-lg font-semibold">Services</h6>
-          <a className="link link-hover text-[16px]">Insurance Tax </a>
-          <a className="link link-hover text-[16px]">Financial Planning </a>
-          <a className="link link-hover text-[16px]">Audit & Assurancy</a>
-          <a className="link link-hover text-[16px]">Business Growth Plan</a>
-          <a className="link link-hover text-[16px]">Finance Secure</a>
-        </nav>
-        <nav>
-          <h6 className="text-lg font-semibold">Head Office</h6>
-          <a className="link link-hover text-[16px]">
-            Blue Tower #789, Small building
+          <h6 className="text-lg font-semibold">Get In Touch</h6>
+          <a className="link link-hover text-[16px] flex items-center gap-2">
+            <MdOutlineMail size={20} />{" "}
+            <span>afranislamabir6789@gmail.com</span>
           </a>
-          <a className="link link-hover text-[16px]">
-            {" "}
-            Uttara 1200, Bangladesh
+          <a className="link link-hover text-[16px] flex items-center gap-2">
+            <IoCallOutline size={20} /> <span>+8801306700357</span>
           </a>
-
-          <h6 className="text-lg font-semibold">Office Hours</h6>
-          <a className="link link-hover text-[16px]">
-            Monday - Firday : 09.00-17.00
+          <a className="link link-hover text-[16px] flex items-center gap-2">
+            <IoLocationOutline size={20} /> <span>Dhaka, Bangladesh</span>
           </a>
         </nav>
       </footer>

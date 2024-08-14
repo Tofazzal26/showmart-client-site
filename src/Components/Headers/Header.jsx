@@ -1,10 +1,38 @@
 import { NavLink } from "react-router-dom";
-import logo from "../../../public/budgeting.png";
+import logo from "../../../public/convenience.png";
 import profile from "../../../public/profile.png";
 
 const Header = () => {
   const navLinks = (
     <>
+      <li>
+        <a>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive
+                ? "text-orange-300"
+                : "text-white hover:text-orange-300 hover:ease-in-out transition-all"
+            }
+          >
+            Home
+          </NavLink>
+        </a>
+      </li>
+      <li>
+        <a>
+          <NavLink
+            to="/showCase"
+            className={({ isActive }) =>
+              isActive
+                ? "text-orange-300"
+                : "text-white hover:text-orange-300 hover:ease-in-out transition-all"
+            }
+          >
+            Showcase
+          </NavLink>
+        </a>
+      </li>
       <li>
         <a>
           <NavLink
@@ -15,35 +43,21 @@ const Header = () => {
                 : "text-white hover:text-orange-300 hover:ease-in-out transition-all"
             }
           >
-            Services
+            Service
           </NavLink>
         </a>
       </li>
       <li>
         <a>
           <NavLink
-            to="/business"
+            to="/about"
             className={({ isActive }) =>
               isActive
                 ? "text-orange-300"
                 : "text-white hover:text-orange-300 hover:ease-in-out transition-all"
             }
           >
-            Business
-          </NavLink>
-        </a>
-      </li>
-      <li>
-        <a>
-          <NavLink
-            to="/helpdesk"
-            className={({ isActive }) =>
-              isActive
-                ? "text-orange-300"
-                : "text-white hover:text-orange-300 hover:ease-in-out transition-all"
-            }
-          >
-            Helpdesk
+            About
           </NavLink>
         </a>
       </li>
@@ -78,18 +92,18 @@ const Header = () => {
               {navLinks}
             </ul>
           </div>
-          <a className="btn btn-ghost flex items-center text-2xl">
-            <img src={logo} width={45} alt="" /> Financity
+          <a className="btn btn-ghost flex items-center text-lg lg:text-2xl">
+            <img src={logo} width={45} alt="" /> ShowMart
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal font-semibold px-1">
+          <ul className="menu menu-horizontal text-[18px] font-semibold px-1">
             {navLinks}
           </ul>
         </div>
         <div className="navbar-end">
           <button className="bg-orange-300 px-4 text-[14px] py-2 text-black font-semibold rounded-md">
-            <NavLink to="/">Login</NavLink>
+            <NavLink to="/login">Login</NavLink>
           </button>
           <div className="avatar hidden">
             <div className="ring-blue ring-offset-blue-400 w-[35px] rounded-full ring ring-offset-2">

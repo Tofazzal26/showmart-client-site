@@ -7,14 +7,22 @@ import Helpdesk from "../Pages/Helpdesk/Helpdesk";
 import Business from "../Pages/Business/Business";
 import Login from "../Pages/Login/Login";
 import Register from "./../Pages/Register/Register";
+import NotFound from "../Components/Not_Found_Page/NotFound";
+import About from "../Components/About/About";
+import ShowCase from "../Components/ShowCase/ShowCase";
 
 const Routers = createBrowserRouter([
   {
     path: "/",
+    errorElement: <NotFound />,
     element: <Root />,
     children: [
       {
         path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/login",
         element: <Login />,
       },
       {
@@ -22,14 +30,13 @@ const Routers = createBrowserRouter([
         element: <Service />,
       },
       {
-        path: "/business",
-        element: <Business />,
+        path: "/showCase",
+        element: <ShowCase />,
       },
       {
-        path: "/helpdesk",
-        element: <Helpdesk />,
+        path: "/about",
+        element: <About />,
       },
-
       {
         path: "/register",
         element: <Register />,
