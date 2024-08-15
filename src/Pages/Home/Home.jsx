@@ -7,6 +7,9 @@ import team1 from "../../../public/team1.jpg";
 import team2 from "../../../public/team2.jpg";
 import team3 from "../../../public/team3.jpg";
 import team4 from "../../../public/team4.jpg";
+import blog1 from "../../../public/blog1.jpg";
+import blog2 from "../../../public/blog2.jpg";
+import blog3 from "../../../public/blog3.jpg";
 
 const Home = () => {
   const { bulbul } = useContext(AuthContext);
@@ -108,7 +111,7 @@ const Home = () => {
         </div>
       </div>
       {/* meet ou team section */}
-      <div className="mt-[150px]">
+      <div className="mt-[40px] lg:mt-[150px]">
         <div>
           <section className="py-6 dark:bg-gray-100 dark:text-gray-800">
             <div className="container p-4 mx-auto space-y-16 sm:p-10">
@@ -363,6 +366,163 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+      {/* our blog section  */}
+      <div>
+        <div>
+          <section className="py-6 sm:py-12">
+            <div className="container p-6 mx-auto space-y-8">
+              <div className="space-y-2 text-center">
+                <h2 className="text-[30px] lg:text-[48px] font-bold">
+                  Latest Blog Posts
+                </h2>
+                <p className="font-serif text-base dark:text-gray-600">
+                  Dive into insightful articles, expert tips, and the latest
+                  trends in the industry. Our team shares valuable knowledge and
+                  practical advice to keep you informed and inspired
+                </p>
+              </div>
+              <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4">
+                <article className="flex flex-col dark:bg-gray-50">
+                  <a
+                    rel="noopener noreferrer"
+                    href="#"
+                    aria-label="Te nulla oportere reprimique his dolorum"
+                  >
+                    <img
+                      alt=""
+                      className="object-cover w-full h-52 dark:bg-gray-500"
+                      src={blog1}
+                    />
+                  </a>
+                  <div className="flex flex-col flex-1 p-6">
+                    <a
+                      rel="noopener noreferrer"
+                      href="#"
+                      aria-label="Te nulla oportere reprimique his dolorum"
+                    ></a>
+                    <a
+                      rel="noopener noreferrer"
+                      href="#"
+                      className="text-xs tracking-wider uppercase hover:underline dark:text-violet-600"
+                    >
+                      Convenire
+                    </a>
+                    <h3 className="flex-1 py-2 text-lg font-semibold leading-snug">
+                      Te nulla oportere reprimique his dolorum
+                    </h3>
+                    <div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-600">
+                      <span>June 1, 2020</span>
+                      <span>2.1K views</span>
+                    </div>
+                  </div>
+                </article>
+                <article className="flex flex-col dark:bg-gray-50">
+                  <a
+                    rel="noopener noreferrer"
+                    href="#"
+                    aria-label="Te nulla oportere reprimique his dolorum"
+                  >
+                    <img
+                      alt=""
+                      className="object-cover w-full h-52 dark:bg-gray-500"
+                      src={blog2}
+                    />
+                  </a>
+                  <div className="flex flex-col flex-1 p-6">
+                    <a
+                      rel="noopener noreferrer"
+                      href="#"
+                      aria-label="Te nulla oportere reprimique his dolorum"
+                    ></a>
+                    <a
+                      rel="noopener noreferrer"
+                      href="#"
+                      className="text-xs tracking-wider uppercase hover:underline dark:text-violet-600"
+                    >
+                      Convenire
+                    </a>
+                    <h3 className="flex-1 py-2 text-lg font-semibold leading-snug">
+                      Te nulla oportere reprimique his dolorum
+                    </h3>
+                    <div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-600">
+                      <span>June 2, 2020</span>
+                      <span>2.2K views</span>
+                    </div>
+                  </div>
+                </article>
+                <article className="flex flex-col dark:bg-gray-50">
+                  <a
+                    rel="noopener noreferrer"
+                    href="#"
+                    aria-label="Te nulla oportere reprimique his dolorum"
+                  >
+                    <img
+                      alt=""
+                      className="object-cover w-full h-52 dark:bg-gray-500"
+                      src={blog3}
+                    />
+                  </a>
+                  <div className="flex flex-col flex-1 p-6">
+                    <a
+                      rel="noopener noreferrer"
+                      href="#"
+                      aria-label="Te nulla oportere reprimique his dolorum"
+                    ></a>
+                    <a
+                      rel="noopener noreferrer"
+                      href="#"
+                      className="text-xs tracking-wider uppercase hover:underline dark:text-violet-600"
+                    >
+                      Convenire
+                    </a>
+                    <h3 className="flex-1 py-2 text-lg font-semibold leading-snug">
+                      Te nulla oportere reprimique his dolorum
+                    </h3>
+                    <div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-600">
+                      <span>June 3, 2020</span>
+                      <span>2.3K views</span>
+                    </div>
+                  </div>
+                </article>
+                <article className="flex flex-col dark:bg-gray-50">
+                  <a
+                    rel="noopener noreferrer"
+                    href="#"
+                    aria-label="Te nulla oportere reprimique his dolorum"
+                  >
+                    <img
+                      alt=""
+                      className="object-cover w-full h-52 dark:bg-gray-500"
+                      src={team4}
+                    />
+                  </a>
+                  <div className="flex flex-col flex-1 p-6">
+                    <a
+                      rel="noopener noreferrer"
+                      href="#"
+                      aria-label="Te nulla oportere reprimique his dolorum"
+                    ></a>
+                    <a
+                      rel="noopener noreferrer"
+                      href="#"
+                      className="text-xs tracking-wider uppercase hover:underline dark:text-violet-600"
+                    >
+                      Convenire
+                    </a>
+                    <h3 className="flex-1 py-2 text-lg font-semibold leading-snug">
+                      Te nulla oportere reprimique his dolorum
+                    </h3>
+                    <div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-600">
+                      <span>June 4, 2020</span>
+                      <span>2.4K views</span>
+                    </div>
+                  </div>
+                </article>
               </div>
             </div>
           </section>
