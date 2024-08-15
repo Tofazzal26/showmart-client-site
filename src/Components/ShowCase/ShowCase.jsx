@@ -1,6 +1,7 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { IoIosSearch } from "react-icons/io";
 const ShowCase = () => {
   const [startDate, setStartDate] = useState(new Date());
 
@@ -22,9 +23,9 @@ const ShowCase = () => {
   return (
     <div className="mt-[100px]">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-5">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-5">
           <div className="col-span-1">
-            <div>
+            <div className="mt-[10px]">
               <h1 className="text-[16px] font-bold font-interFont">
                 Product Categories
               </h1>
@@ -119,7 +120,7 @@ const ShowCase = () => {
                   </select>
                   <span className="border-2 rounded-lg font-semibold text-[14px]  mt-4 py-2 px-4">
                     <DatePicker
-                      className="w-[120px]"
+                      className="w-[100px]"
                       selected={startDate}
                       onChange={(date) => setStartDate(date)}
                     />
@@ -136,7 +137,29 @@ const ShowCase = () => {
             </div>
           </div>
           <div className="col-span-4">
-            <h1>Product</h1>
+            <div className="flex justify-between items-center">
+              <div>
+                <h2 className="text-[14px] font-interFont font-medium">
+                  Showing all 12 results
+                </h2>
+              </div>
+              <div className="relative">
+                <input
+                  type="text"
+                  className="border-2  rounded-md outline-none text-[14px] font-interFont px-4 py-2 relative font-medium"
+                  placeholder="Search"
+                />
+                <div className="absolute right-3 top-[12px] cursor-pointer">
+                  <IoIosSearch size={20} />
+                </div>
+              </div>
+            </div>
+
+            {/* product here section */}
+
+            <div>
+              <div></div>
+            </div>
           </div>
         </div>
       </div>
