@@ -2,7 +2,7 @@ import serviceImg from "../../../public/service.jpg";
 
 const Service = () => {
   return (
-    <div className="my-4">
+    <div className="lg:mt-[100px] mt-[50px] mb-4">
       <div className="container mx-auto">
         <div className="flex lg:flex-row flex-col justify-center gap-10">
           <div>

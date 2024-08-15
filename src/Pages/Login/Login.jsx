@@ -1,11 +1,29 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
+  const { loginUser } = useContext(AuthContext);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from || "/";
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log({ email, password });
+    loginUser(email, password)
+      .then((result) => {
+        console.log(result);
+        navigate(from);
+        toast.success("Login Success");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
