@@ -2,29 +2,29 @@ import React, { useContext } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
+import useAxiosSecure from "./../../Hooks/AxiosSecure/useAxiosSecure";
 
 const Register = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
-
   const location = useLocation();
   const navigate = useNavigate();
-
   const from = location.state?.from || "/";
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
     createUser(email, password)
-      .then((result) => {
+      .then(async (result) => {
         updateUserProfile(name)
-          .then((result) => {
+          .then(async (result) => {
             navigate(from);
             toast.success("Register Success");
           })
           .catch((error) => {
             console.log(error);
+            toast.error("Please Valid Email And Password");
           });
       })
       .catch((error) => {
