@@ -46,8 +46,6 @@ const AuthProvider = ({ children }) => {
     };
   }, [profileLoad]);
 
-  console.log(user);
-
   const createUser = (email, password) => {
     setNotLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
