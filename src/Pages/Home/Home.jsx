@@ -15,7 +15,7 @@ const Home = () => {
   const { bulbul } = useContext(AuthContext);
 
   return (
-    <div>
+    <div className="mt-0 lg:mt-[100px]">
       <div>
         <div className="relative lg:pt-[80px] lg:ml-[200px]">
           <h2 className="text-[#4889fa] font-semibold">Traffic</h2>

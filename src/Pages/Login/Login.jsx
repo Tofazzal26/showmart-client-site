@@ -3,36 +3,36 @@ import { NavLink } from "react-router-dom";
 const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    const email_number = e.target.number_email.value;
-    const pin = e.target.pin.value;
-    console.log({ email_number, pin });
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log({ email, password });
   };
 
   return (
-    <div className="mt-12">
+    <div className="mt-[100px]">
       <div className="border-2 lg:w-[800px] mx-auto">
         <div className="p-4 lg:p-10 ">
           <form onSubmit={handleSubmit}>
             <h2 className="text-center text-2xl font-semibold">Login</h2>
             <div>
-              <label className="font-semibold">Mobile</label>
+              <label className="font-semibold">Email</label>
               <br />
               <input
-                type="text"
-                placeholder="Number/Email"
-                className="input input-bordered w-full"
-                name="number_email"
+                type="email"
+                placeholder="Email"
+                className="input input-bordered w-full mt-2"
+                name="email"
                 required
               />
             </div>
             <div className="mt-2 mb-4">
-              <label className="font-semibold">Pin</label>
+              <label className="font-semibold">Password</label>
               <br />
               <input
-                type="number"
-                placeholder="Pin Number"
-                className="input input-bordered w-full"
-                name="pin"
+                type="password"
+                placeholder="Password"
+                className="input input-bordered w-full mt-2"
+                name="password"
                 required
               />
             </div>

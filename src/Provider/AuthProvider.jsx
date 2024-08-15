@@ -1,8 +1,22 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import auth from "./../Firebase/Firebase.config";
 
 export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [notLoading, setNotLoading] = useState(true);
+  const [profileLoad, setProfileLoad] = useState(false);
+
+  useEffect(() => {
+    const unSubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      setUser(currentUser);
+      setNotLoading(false);
+    });
+    return () => {
+      unSubscribe();
+    };
+  }, [profileLoad]);
 
   const userInfo = { user, setUser };
   return (
