@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyC8L6x8u5rSwcxB3M4OVSukWEtoMBkMC_0",
-  authDomain: "showmart-dd30a.firebaseapp.com",
-  projectId: "showmart-dd30a",
-  storageBucket: "showmart-dd30a.appspot.com",
-  messagingSenderId: "111482953414",
-  appId: "1:111482953414:web:72e8d364e510b961f801c7",
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase

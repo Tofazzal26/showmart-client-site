@@ -23,13 +23,6 @@ const ShowCase = () => {
     },
   });
 
-  const handleSorting = (e) => {
-    e.preventDefault();
-    const price = e.target.low_price.value;
-    const date = startDate;
-    console.log({ price, date });
-  };
-
   // pagination here
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -80,6 +73,31 @@ const ShowCase = () => {
     setFilterCategory(filterData);
   };
 
+  const [sorting, setSorting] = useState(currentUsers);
+
+  const handleSorting = (e) => {
+    e.preventDefault();
+    const price = e.target.low_price.value;
+    const userDate = startDate;
+    const formattedDate = userDate.toISOString().split("T")[0];
+
+    const ascendingData = [...currentUsers].sort((a, b) => a.price - b.price);
+    const descendingData = [...currentUsers].sort((a, b) => b.price - a.price);
+
+    if (price === "low") {
+      const ascendingOrder = ascendingData.filter(
+        (item) => item.date >= formattedDate
+      );
+      setSorting(ascendingOrder);
+    }
+    if (price === "high") {
+      const descendingOrder = descendingData.filter(
+        (item) => item.date >= formattedDate
+      );
+      setSorting(descendingOrder);
+    }
+  };
+
   const showProducts = () => {
     if (searchProduct) {
       return filterProduct.map((product, idx) => (
@@ -87,6 +105,10 @@ const ShowCase = () => {
       ));
     } else if (filterCategory.length > 0) {
       return filterCategory.map((product, idx) => (
+        <ShowCaseCard product={product} key={idx} />
+      ));
+    } else if (sorting.length > 0) {
+      return sorting.map((product, idx) => (
         <ShowCaseCard product={product} key={idx} />
       ));
     } else {
@@ -107,6 +129,12 @@ const ShowCase = () => {
       return (
         <h2 className="text-[14px] font-interFont font-medium">
           Showing all {filterCategory.length} results
+        </h2>
+      );
+    } else if (sorting.length > 0) {
+      return (
+        <h2 className="text-[14px] font-interFont font-medium">
+          Showing all {sorting.length} results
         </h2>
       );
     } else {
