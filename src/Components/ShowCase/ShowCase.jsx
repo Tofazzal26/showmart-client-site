@@ -9,7 +9,11 @@ const ShowCase = () => {
   const [startDate, setStartDate] = useState(new Date());
   const axiosSecure = useAxiosSecure();
 
-  const { refetch, data: allProduct = [] } = useQuery({
+  const {
+    refetch,
+    isLoading,
+    data: allProduct = [],
+  } = useQuery({
     queryKey: ["allProduct"],
     queryFn: async () => {
       const result = await axiosSecure.get(`/allProducts`, {
@@ -18,14 +22,6 @@ const ShowCase = () => {
       return result.data;
     },
   });
-
-  const handleCategories = (e) => {
-    e.preventDefault();
-    const brand = e.target.brand_name.value;
-    const price = e.target.price_range.value;
-    const category = e.target.category_name.value;
-    console.log({ brand, price, category });
-  };
 
   const handleSorting = (e) => {
     e.preventDefault();
@@ -37,7 +33,7 @@ const ShowCase = () => {
   // pagination here
 
   const [currentPage, setCurrentPage] = useState(1);
-  const usersPerPage = 10;
+  const usersPerPage = 15;
 
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
@@ -55,15 +51,71 @@ const ShowCase = () => {
   // search product
 
   const [searchProduct, setSearchProduct] = useState("");
-  const [filterProduct, setFilterProduct] = useState(currentUsers);
+  const [filterProduct, setFilterProduct] = useState(allProduct);
 
   const handleSearch = (e) => {
     const value = e.target.value;
     setSearchProduct(value);
-    const filterData = currentUsers.filter((product) =>
-      product.category_name.toLowerCase().includes(value.toLowerCase())
+    const filterData = currentUsers.filter(
+      (product) =>
+        product.category_name.toLowerCase().includes(value.toLowerCase()) ||
+        product.brand_name.toLowerCase().includes(value.toLowerCase())
     );
     setFilterProduct(filterData);
+  };
+
+  const [filterCategory, setFilterCategory] = useState(currentUsers);
+
+  const handleCategories = (e) => {
+    e.preventDefault();
+    const brand = e.target.brand_name.value;
+    const UserPrice = e.target.price_range.value;
+    const category = e.target.category_name.value;
+    const filterData = currentUsers.filter(
+      (product) =>
+        product.category_name.toLowerCase().includes(category.toLowerCase()) &&
+        product.brand_name.toLowerCase().includes(brand.toLowerCase()) &&
+        product.price <= parseInt(UserPrice)
+    );
+    setFilterCategory(filterData);
+  };
+
+  const showProducts = () => {
+    if (searchProduct) {
+      return filterProduct.map((product, idx) => (
+        <ShowCaseCard product={product} key={idx} />
+      ));
+    } else if (filterCategory.length > 0) {
+      return filterCategory.map((product, idx) => (
+        <ShowCaseCard product={product} key={idx} />
+      ));
+    } else {
+      return currentUsers.map((product, idx) => (
+        <ShowCaseCard product={product} key={idx} />
+      ));
+    }
+  };
+
+  const dataCount = () => {
+    if (searchProduct.trim() !== "") {
+      return (
+        <h2 className="text-[14px] font-interFont font-medium">
+          Showing all {filterProduct?.length} results
+        </h2>
+      );
+    } else if (filterCategory.length > 0) {
+      return (
+        <h2 className="text-[14px] font-interFont font-medium">
+          Showing all {filterCategory.length} results
+        </h2>
+      );
+    } else {
+      return (
+        <h2 className="text-[14px] font-interFont font-medium">
+          Showing all {currentUsers.length} results
+        </h2>
+      );
+    }
   };
 
   return (
@@ -184,13 +236,8 @@ const ShowCase = () => {
           </div>
           <div className="col-span-4">
             <div className="flex justify-between items-center">
-              <div>
-                <h2 className="text-[14px] font-interFont font-medium">
-                  Showing all{" "}
-                  {searchProduct ? searchProduct?.length : currentUsers?.length}{" "}
-                  results
-                </h2>
-              </div>
+              <div>{dataCount()}</div>
+
               <div className="relative">
                 <input
                   value={searchProduct}
@@ -204,18 +251,24 @@ const ShowCase = () => {
                 </div>
               </div>
             </div>
+            {isLoading && (
+              <div className="my-[100px] flex justify-center items-center">
+                <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-blue-600"></div>
+              </div>
+            )}
 
             {/* product here section */}
 
             <div className="my-8">
               <div className="grid gap-8 grid-cols-1 lg:grid-cols-3">
-                {searchProduct
+                {/* {searchProduct
                   ? filterProduct.map((product, idx) => (
                       <ShowCaseCard product={product} key={idx} />
                     ))
                   : currentUsers.map((product, idx) => (
                       <ShowCaseCard product={product} key={idx} />
-                    ))}
+                    ))} */}
+                {showProducts()}
               </div>
               <div>
                 <div className="flex justify-center mt-4">
