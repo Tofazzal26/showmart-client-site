@@ -19,8 +19,6 @@ const ShowCase = () => {
     },
   });
 
-  console.log(allProduct);
-
   const handleCategories = (e) => {
     e.preventDefault();
     const brand = e.target.brand_name.value;
@@ -39,7 +37,7 @@ const ShowCase = () => {
   // pagination here
 
   const [currentPage, setCurrentPage] = useState(1);
-  const usersPerPage = 5;
+  const usersPerPage = 10;
 
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
@@ -49,6 +47,24 @@ const ShowCase = () => {
   const totalPages = Math.ceil(allProduct.length / usersPerPage);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  // search data state
+
+  const [allSearchData, setAllSearchData] = useState(currentUsers);
+
+  // search product
+
+  const [searchProduct, setSearchProduct] = useState("");
+  const [filterProduct, setFilterProduct] = useState(currentUsers);
+
+  const handleSearch = (e) => {
+    const value = e.target.value;
+    setSearchProduct(value);
+    const filterData = currentUsers.filter((product) =>
+      product.category_name.toLowerCase().includes(value.toLowerCase())
+    );
+    setFilterProduct(filterData);
+  };
 
   return (
     <div className="mt-[100px]">
@@ -170,11 +186,15 @@ const ShowCase = () => {
             <div className="flex justify-between items-center">
               <div>
                 <h2 className="text-[14px] font-interFont font-medium">
-                  Showing all 12 results
+                  Showing all{" "}
+                  {searchProduct ? searchProduct?.length : currentUsers?.length}{" "}
+                  results
                 </h2>
               </div>
               <div className="relative">
                 <input
+                  value={searchProduct}
+                  onChange={handleSearch}
                   type="text"
                   className="border-2  rounded-md outline-none text-[14px] font-interFont px-4 py-2 relative font-medium"
                   placeholder="Search"
@@ -187,11 +207,15 @@ const ShowCase = () => {
 
             {/* product here section */}
 
-            <div className="mb-8">
+            <div className="my-8">
               <div className="grid gap-8 grid-cols-1 lg:grid-cols-3">
-                {currentUsers.map((product, idx) => (
-                  <ShowCaseCard product={product} key={idx} />
-                ))}
+                {searchProduct
+                  ? filterProduct.map((product, idx) => (
+                      <ShowCaseCard product={product} key={idx} />
+                    ))
+                  : currentUsers.map((product, idx) => (
+                      <ShowCaseCard product={product} key={idx} />
+                    ))}
               </div>
               <div>
                 <div className="flex justify-center mt-4">

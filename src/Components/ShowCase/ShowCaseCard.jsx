@@ -2,7 +2,7 @@ const ShowCaseCard = ({ product }) => {
   const { image, brand_name, category_name, price, date } = product || {};
 
   return (
-    <div className="my-[30px]">
+    <div>
       <div className="p-6 rounded-md border-2 ">
         <img
           src={image}
@@ -17,9 +17,16 @@ const ShowCaseCard = ({ product }) => {
             {category_name}
           </h2>
         </div>
+        <div className="flex justify-between items-start">
+          <div>
+            <p className="text-red-500 font-semibold">${price}</p>
+          </div>
+          <p className="text-red-500 font-semibold">{date}</p>
+        </div>
         <p className="dark:text-gray-800">
-          Mauris et lorem at elit tristique dignissim et ullamcorper elit. In
-          sed feugiat mi. Etiam ut lacinia dui.
+          Whether you’re looking for reliability, efficiency, or a sleek design,
+          the {category_name} offers it all. Ideal for those who value{" "}
+          {brand_name}.
         </p>
       </div>
     </div>
