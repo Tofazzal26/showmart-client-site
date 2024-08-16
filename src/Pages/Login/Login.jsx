@@ -2,14 +2,25 @@ import { useContext } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, googleLogin } = useContext(AuthContext);
 
   const location = useLocation();
   const navigate = useNavigate();
 
   const from = location.state?.from || "/";
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((result) => {
+        navigate(from);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -61,10 +72,18 @@ const Login = () => {
             <h2 className="text-center my-4 font-semibold">
               Do not Have An Account ?{" "}
               <NavLink to="/register" className="text-[#2d4d95]">
-                Register
+                Login
               </NavLink>
             </h2>
           </form>
+          <div className="flex justify-center items-center">
+            <button
+              onClick={handleGoogleLogin}
+              className="flex items-center font-semibold border-2 py-2 rounded-full px-4 text-[14px] gap-2"
+            >
+              <FcGoogle size={25} /> Continue Google
+            </button>
+          </div>
         </div>
       </div>
     </div>

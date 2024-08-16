@@ -5,6 +5,8 @@ import {
   signOut,
   updateProfile,
   signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 import auth from "./../Firebase/Firebase.config";
 import axios from "axios";
@@ -65,6 +67,12 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  const googleProvider = new GoogleAuthProvider();
+
+  const googleLogin = () => {
+    return signInWithPopup(auth, googleProvider);
+  };
+
   const userInfo = {
     user,
     setUser,
@@ -75,6 +83,7 @@ const AuthProvider = ({ children }) => {
     updateUserProfile,
     userSignOut,
     loginUser,
+    googleLogin,
   };
   return (
     <AuthContext.Provider value={userInfo}>{children}</AuthContext.Provider>
