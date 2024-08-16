@@ -199,7 +199,7 @@ const ShowCase = () => {
 
                     <select
                       id="price-range"
-                      className="border-2 px-4 ml-4 py-2 font-semibold text-[14px] rounded-lg"
+                      className="border-2 px-4 lg:ml-4 py-2 font-semibold text-[14px] rounded-lg"
                       name="price_range"
                     >
                       <option value="">Price Range</option>
@@ -263,8 +263,8 @@ const ShowCase = () => {
             </div>
           </div>
           <div className="col-span-4">
-            <div className="flex justify-between items-center">
-              <div>{dataCount()}</div>
+            <div className="flex lg:flex-row flex-col justify-between items-center">
+              <div className="lg:mb-0 mb-4">{dataCount()}</div>
 
               <div className="relative">
                 <input

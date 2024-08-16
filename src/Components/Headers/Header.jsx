@@ -112,7 +112,7 @@ const Header = () => {
               </ul>
             </div>
             <a className="btn btn-ghost flex items-center text-lg lg:text-2xl">
-              <img src={logo} width={45} alt="" /> ShowMart
+              <img src={logo} width={35} alt="" /> ShowMart
             </a>
           </div>
           <div className="navbar-center hidden lg:flex">
